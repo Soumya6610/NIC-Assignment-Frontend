@@ -10,7 +10,7 @@ import { User } from '../../models/user.model';
 })
 export class RegisterComponent {
   user: User = {
-    name: '',
+    username: '',
     email: '',
     password: '',
     role: 'OD',
