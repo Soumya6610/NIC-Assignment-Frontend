@@ -13,15 +13,26 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
-    this.authService.login(this.email, this.password).subscribe((user) => {
-      if (user.role === 'ADMIN') {
-        this.router.navigate(['/admin-dashboard']);
-      } else if (user.role === 'OD') {
-        this.router.navigate(['/od-dashboard']);
-      } else {
-        this.router.navigate(['/cd-dashboard']);
-      }
+  login() {
+    this.authService.login(this.email, this.password).subscribe({
+      next: (response: any) => {
+        localStorage.setItem('jwt', response.jwt);
+        const role = this.authService.getRole();
+        console.log(role);
+        if (role === 'ADMIN') {
+          this.router.navigate(['/admin-dashboard']);
+        } else if (role === 'CD') {
+          this.router.navigate(['/cd-dashboard']);
+        } else if (role === 'OD') {
+          this.router.navigate(['/od-dashboard']);
+        }
+      },
+      error: (error) => {
+        console.error('Login failed', error);
+      },
+      complete: () => {
+        console.log('Login request complete');
+      },
     });
   }
 }

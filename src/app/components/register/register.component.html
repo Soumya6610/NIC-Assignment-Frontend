@@ -1,17 +1,18 @@
-<div>
-  <form (ngSubmit)="onSubmit()">
-    <div>
-      <label for="name">Name:</label>
+<div class="form-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="register()">
+    <div class="form-group">
+      <label for="username">Username:</label>
       <input
         type="text"
         id="name"
-        [(ngModel)]="user.name"
+        [(ngModel)]="user.username"
         name="name"
         required
       />
     </div>
 
-    <div>
+    <div class="form-group">
       <label for="email">Email:</label>
       <input
         type="email"
@@ -22,7 +23,7 @@
       />
     </div>
 
-    <div>
+    <div class="form-group">
       <label for="password">Password:</label>
       <input
         type="password"
@@ -33,7 +34,7 @@
       />
     </div>
 
-    <div>
+    <div class="form-group">
       <label for="role">Role:</label>
       <select id="role" [(ngModel)]="user.role" name="role" required>
         <option value="ADMIN">Admin</option>
@@ -42,7 +43,7 @@
       </select>
     </div>
 
-    <button type="submit">Register</button>
+    <button class="btn" type="submit">Register</button>
   </form>
   <p>Already an account? <a routerLink="/login">Login here</a></p>
 </div>

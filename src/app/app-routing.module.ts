@@ -9,9 +9,18 @@ import { CdDashboardComponent } from './components/cd-dashboard/cd-dashboard.com
 const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
-  { path: 'od-dashboard', component: OdDashboardComponent },
-  { path: 'cd-dashboard', component: CdDashboardComponent },
+  {
+    path: 'admin-dashboard',
+    component: AdminDashboardComponent,
+  },
+  {
+    path: 'od-dashboard',
+    component: OdDashboardComponent,
+  },
+  {
+    path: 'cd-dashboard',
+    component: CdDashboardComponent,
+  },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

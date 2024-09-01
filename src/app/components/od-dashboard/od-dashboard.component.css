@@ -1,0 +1,10 @@
+.form-control {
+  background-color: whitesmoke;
+  color: rgb(172, 76, 151);
+  text-align: center;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+}
